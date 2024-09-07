@@ -29,7 +29,12 @@ const Footer = () => {
       </View>
       <View style={styles.container}>
         <Text style={styles.support}>CUSTOMER SUPPORT</Text>
-        <Text style={styles.supportOptions}>CONTACT US</Text>
+        <Text
+          style={styles.supportOptions}
+          onPress={() => navigation.navigate("Contact")}
+        >
+          CONTACT US
+        </Text>
         <Text style={styles.supportOptions}>ORDER TRACKER</Text>
         <Text style={styles.supportOptions}>RETURNS AND REFUNDS</Text>
         <Text style={styles.supportOptions}>SIZING STORE LOCATOR</Text>

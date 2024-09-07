@@ -10,6 +10,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Home from "./Home";
 
 const About = (props) => {
   const intro = `Whether attacking the mountain that is the top of your bucket list, or attacking a challenging climbing wall, we have you covered. We constantly upgrade our stock with the newest and bset gear. We pride ourselves on stocking the best and the safest gear. And of course our prices are great!`;
@@ -18,39 +19,45 @@ const About = (props) => {
 
   const stores = `With 15 locations across 6 States you may find a brick and mortar location nearby. No worries if a store is not close, you can alswy shop on CarvedRock.com. And now with our new mobile app you will even be able to shop directly from your mobile device.`;
 
+  const longPressGesture = Gesture.LongPress().onEnd(() => {
+    navigation.navigate("Home");
+  });
+
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <Header />
-        <Image
-          style={styles.imageStyle}
-          source={require("../assets/shutterstock_440789620.jpg")}
-        />
-        <Text style={styles.aboutTitle}>We Love New Adventures</Text>
-        <Text style={styles.aboutText}>{intro}</Text>
-        <Image
-          style={styles.imageStyle}
-          source={require("../assets/shutterstock_492010117.jpg")}
-        />
-        <Text style={styles.aboutTitle}>How We Started</Text>
-        <Text style={styles.aboutText}>{bio}</Text>
-        <Image
-          style={styles.imageStyle}
-          source={require("../assets/shutterstock_273547007.jpg")}
-        />
-        <Text style={styles.aboutTitle}>Where Can You Find Us</Text>
-        <Text style={styles.aboutText}>{stores}</Text>
-        <TouchableOpacity
-          style={styles.aboutButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Text style={styles.aboutButtonText}>GO BACK</Text>
-        </TouchableOpacity>
-        <Footer />
-      </ScrollView>
-    </View>
+    <GestureDetector gesture={longPressGesture}>
+      <View style={styles.container}>
+        <ScrollView>
+          <Header />
+          <Image
+            style={styles.imageStyle}
+            source={require("../assets/shutterstock_440789620.jpg")}
+          />
+          <Text style={styles.aboutTitle}>We Love New Adventures</Text>
+          <Text style={styles.aboutText}>{intro}</Text>
+          <Image
+            style={styles.imageStyle}
+            source={require("../assets/shutterstock_492010117.jpg")}
+          />
+          <Text style={styles.aboutTitle}>How We Started</Text>
+          <Text style={styles.aboutText}>{bio}</Text>
+          <Image
+            style={styles.imageStyle}
+            source={require("../assets/shutterstock_273547007.jpg")}
+          />
+          <Text style={styles.aboutTitle}>Where Can You Find Us</Text>
+          <Text style={styles.aboutText}>{stores}</Text>
+          <TouchableOpacity
+            style={styles.aboutButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={styles.aboutButtonText}>GO BACK</Text>
+          </TouchableOpacity>
+          <Footer />
+        </ScrollView>
+      </View>
+    </GestureDetector>
   );
 };
 
