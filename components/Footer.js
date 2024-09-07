@@ -6,10 +6,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useState } from "react";
-import { Navigation } from "react-native-navigation";
+import { useNavigation } from "@react-navigation/native";
 
 const Footer = () => {
   const [emailText, setEmailText] = useState("Enter email address");
+  const navigation = useNavigation();
   return (
     <View>
       <View style={styles.container}>
@@ -35,28 +36,16 @@ const Footer = () => {
         <Text style={styles.supportOptions}>SITE MAP</Text>
       </View>
       <View style={styles.container}>
-        <Text style={styles.support}>COMPANT INFO</Text>
+        <Text style={styles.support}>COMPANY INFO</Text>
         <Text
           style={styles.supportOptions}
-          onPress={() =>
-            Navigation.push("carved", {
-              component: {
-                name: "About",
-              },
-            })
-          }
+          onPress={() => navigation.navigate("About")}
         >
           ABOUT
         </Text>
         <Text
           style={styles.supportOptions}
-          onPress={() =>
-            Navigation.push("carved", {
-              component: {
-                name: "Careers",
-              },
-            })
-          }
+          onPress={() => navigation.navigate("Careers")}
         >
           CAREERS
         </Text>
