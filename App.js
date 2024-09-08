@@ -7,6 +7,7 @@ import Careers from "./views/Careers.js";
 import Contact from "./views/Contact.js";
 import Trail from "./views/Trail.js";
 import TrailDetail from "./views/TrailDetail.js";
+import Store from "./views/Store.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,10 @@ const App = () => {
           name="TrailDetail"
           component={gestureHandlerRootHOC(TrailDetail)}
         />
+        <Stack.Screen
+          name="Store"
+          component={gestureHandlerRootHOC(Store)}
+        ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
