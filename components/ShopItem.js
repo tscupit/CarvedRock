@@ -11,7 +11,7 @@ const ShopItem = ({ id, name, image, price, category }) => {
   const navigation = useNavigation();
   return (
     <TouchableWithoutFeedback
-      onPress={() => navigation.navigate("carved", { id, category })}
+      onPress={() => navigation.navigate("Store", { id, category })}
     >
       <View style={styles.container}>
         <Image style={styles.shopImage} source={{ uri: image }} />
