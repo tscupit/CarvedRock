@@ -13,16 +13,19 @@ import { useState, useEffect } from "react";
 import Header from "../components/Header";
 
 const TrailItem = ({ author, title, id, image }) => {
-  <View style={styles.item}>
-    <Text
-      style={styles.title}
-      onPress={() => navigation.navigate("TrailDetail", { id: id })}
-    >
-      {title}
-    </Text>
-    <Image style={styles.trailImage} source={{ uri: image }} />
-    <Text style={styles.author}>By {author}</Text>
-  </View>;
+  const navigation = useNavigation();
+  return (
+    <View style={styles.item}>
+      <Text
+        style={styles.title}
+        onPress={() => navigation.navigate("TrailDetail", { id: id })}
+      >
+        {title}
+      </Text>
+      <Image style={styles.trailImage} source={{ uri: image }} />
+      <Text style={styles.author}>By {author}</Text>
+    </View>
+  );
 };
 
 const Trail = (props) => {

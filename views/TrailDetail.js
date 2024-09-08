@@ -50,13 +50,19 @@ const TrailDetail = () => {
             <ActivityIndicator size="large" />
           ) : (
             <View style={styles.reviewTitleRow}>
-              <Text style={styles.reviewTitle}>{trailData.title}</Text>
+              <Text style={styles.reviewTitle}>
+                {trailData?.title || "No Title Available"}
+              </Text>
               <Image
                 style={styles.reviewImage}
-                source={{ uri: trailData.image }}
+                source={{ uri: trailData?.image }}
               />
-              <Text style={styles.reviewAuthor}>By {trailData.author}</Text>
-              <Text style={styles.reviewContent}>{trailData.review}</Text>
+              <Text style={styles.reviewAuthor}>
+                By {trailData?.author || "Unknown"}
+              </Text>
+              <Text style={styles.reviewContent}>
+                {trailData?.review || "No review available"}
+              </Text>
             </View>
           )}
           <Text style={styles.message}>LONGPRESS TO GO BACK</Text>
