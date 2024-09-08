@@ -14,6 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
   const navigation = useNavigation();
+
   const [searchText, setSearchText] = useState("What can we help you find?");
 
   return (
@@ -64,7 +65,7 @@ const Home = () => {
           <TouchableOpacity style={styles.trailButton}>
             <Text
               style={styles.trailButtonText}
-              onPress={navigation.navigate("Trail")}
+              onPress={() => navigation.navigate("Trail")}
             >
               SEE REVIEW
             </Text>
