@@ -10,8 +10,10 @@ import {
 import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
+  const navigation = useNavigation();
   const [searchText, setSearchText] = useState("What can we help you find?");
 
   return (
@@ -60,7 +62,12 @@ const Home = () => {
           <Text style={styles.trailReviewPark1}>ASPHALT</Text>
           <Text style={styles.trailReviewPark2}>NATIONAL PARK</Text>
           <TouchableOpacity style={styles.trailButton}>
-            <Text style={styles.trailButtonText}>SEE REVIEW</Text>
+            <Text
+              style={styles.trailButtonText}
+              onPress={navigation.navigate("Trail")}
+            >
+              SEE REVIEW
+            </Text>
           </TouchableOpacity>
         </View>
         <Footer />
